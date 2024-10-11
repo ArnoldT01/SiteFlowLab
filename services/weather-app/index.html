@@ -4,49 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
-    <script>
-        if (!localStorage.getItem("isLoggedIn")) {
-            window.location.href = "../../login.html";
-        }
-    </script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        
-        a {
-            display: block;
-        }
-
-        #weatherInfo {
-            margin-top: 20px;
-        }
-
-        .autocomplete-suggestions {
-            border: 1px solid #ccc;
-            max-height: 150px;
-            overflow-y: auto;
-            position: absolute;
-            background-color: white;
-            z-index: 1000;
-        }
-
-        .suggestion {
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .suggestion:hover {
-            background-color: #f0f0f0;
-        }
-
-        button {
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="../../css/services/weather-app/index.css">
 </head>
 <body>
+
     <a href="../">Back</a>
     <h1>Weather App</h1>
     <form id="weatherForm">
@@ -59,103 +20,6 @@
     
     <div id="weatherInfo"></div>
 
-    <script>
-        const weatherForm = document.getElementById('weatherForm');
-        const cityInput = document.getElementById('cityInput');
-        const weatherInfoDiv = document.getElementById('weatherInfo');
-        const suggestionsDiv = document.getElementById('suggestions');
-    
-        const apiKey = 'f433176e69b07331a03003cb58e74213';
-        const weatherUrl = 'https://api.openweathermap.org/data/2.5/weather';
-        const cityUrl = 'https://api.openweathermap.org/data/2.5/find';
-    
-        const countryNames = {
-            "US": "United States",
-            "GB": "United Kingdom",
-            "CA": "Canada",
-            "DE": "Germany",
-            "FR": "France",
-            "IN": "India",
-            "AU": "Australia",
-            "ZA": "South Africa",
-            "JP": "Japan",
-            "BR": "Brazil",
-            "CN": "China",
-            "MX": "Mexico",
-            "RU": "Russia",
-            "IT": "Italy",
-            "ES": "Spain",
-            "NL": "Netherlands",
-            "SE": "Sweden",
-            "NO": "Norway",
-            "FI": "Finland",
-            "DK": "Denmark",
-            "KR": "South Korea",
-            "SG": "Singapore",
-            "TR": "Turkey",
-            "AR": "Argentina",
-            "PL": "Poland",
-            "AE": "United Arab Emirates",
-            "CH": "Switzerland",
-            "IE": "Ireland",
-            "TH": "Thailand",
-            "PH": "Philippines",
-            "ID": "Indonesia",
-        };
-    
-        weatherForm.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            const cityName = cityInput.value;
-            await getWeather(cityName);
-        });
-    
-        cityInput.addEventListener('input', async () => {
-            const query = cityInput.value;
-            suggestionsDiv.innerHTML = '';
-    
-            if (query.length > 2) {
-                const cities = await getCitySuggestions(query);
-                cities.forEach(city => {
-                    const suggestionDiv = document.createElement('div');
-                    suggestionDiv.className = 'suggestion';
-                    suggestionDiv.textContent = `${city.name}, ${city.state || ''}, ${countryNames[city.sys.country] || city.sys.country}`.trim(); // Include state if available
-                    suggestionDiv.onclick = () => selectCity(city.name);
-                    suggestionsDiv.appendChild(suggestionDiv);
-                });
-            }
-        });
-    
-        async function getCitySuggestions(query) {
-            const response = await fetch(`${cityUrl}?q=${query}&appid=${apiKey}&limit=5`);
-            if (!response.ok) return [];
-            const data = await response.json();
-            return data.list;
-        }
-    
-        function selectCity(city) {
-            cityInput.value = city;
-            suggestionsDiv.innerHTML = '';
-        }
-    
-        async function getWeather(city) {
-            const response = await fetch(`${weatherUrl}?q=${city}&appid=${apiKey}&units=metric`);
-            if (!response.ok) {
-                weatherInfoDiv.innerHTML = '<p>Error: Unable to fetch weather data.</p>';
-                return;
-            }
-            const weatherData = await response.json();
-            displayWeather(weatherData);
-        }
-    
-        function displayWeather(data) {
-            const { main, weather, name } = data;
-            weatherInfoDiv.innerHTML = `
-                <h2>Weather in ${name}</h2>
-                <p>Temperature: ${main.temp}°C</p>
-                <p>Condition: ${weather[0].description}</p>
-            `;
-        }
-    </script>
-    
+    <script src="../../js/services/weather-app/index.js"></script>
 </body>
 </html>

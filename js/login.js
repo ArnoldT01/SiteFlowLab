@@ -1,3 +1,7 @@
+if (localStorage.getItem("isLoggedIn")) {
+    window.location.href = "./";
+}
+
 document.getElementById("loginForm").onsubmit = function(event) {
     event.preventDefault();
 

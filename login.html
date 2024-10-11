@@ -5,13 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link rel="stylesheet" href="css/login.css">
-    <script>
-        if (localStorage.getItem("isLoggedIn")) {
-            window.location.href = "./";
-        }
-    </script>
 </head>
 <body>
+    
     <div class="container">
         <h2>Welcome Back!</h2>
         <form id="loginForm">
@@ -34,6 +30,7 @@
         </div>
         <p>Don't have an account? <a href="signup.html">Signup here</a></p>
     </div>
+    
     <script src="js/login.js"></script>
 </body>
 </html>

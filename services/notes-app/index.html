@@ -4,41 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notes App</title>
-    <script>
-        if (!localStorage.getItem("isLoggedIn")) {
-            window.location.href = "../../login.html";
-        }
-    </script>
-    <style>
-        a {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        button {
-            display: block;
-            margin-top: 10px;
-        }
-
-        textarea {
-            margin-bottom: 10px;
-        }
-
-        .note {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 5px 0;
-            background-color: #f9f9f9;
-        }
-
-        .note button {
-            margin-top: 5px;
-            margin-right: 5px;
-            display: inline-block;
-        }
-    </style>
+    <link rel="stylesheet" href="../../css/services/notes-app/index.css">
 </head>
 <body>
+
     <a href="../">Back</a>
 
     <textarea id="noteInput" placeholder="Enter your notes here..."></textarea>
@@ -47,84 +16,7 @@
 
     <div id="savedNotesContainer"></div>
 
-    <script>
-        const savedNotesContainerDiv = document.getElementById('savedNotesContainer');
-        const noteInput = document.getElementById('noteInput');
-        const saveButton = document.getElementById('saveButton');
-        const clearButton = document.getElementById('clearButton');
-
-        let editingIndex = -1;
-
-        window.onload = function() {
-            loadNotes();
-        };
-
-        function saveNote() {
-            const noteText = noteInput.value.trim();
-            if (noteText === "") return;
-
-            const notes = JSON.parse(localStorage.getItem('notes')) || [];
-
-            if (editingIndex === -1) {
-                notes.push(noteText);
-            } else {
-                notes[editingIndex] = noteText;
-                editingIndex = -1;
-            }
-
-            localStorage.setItem('notes', JSON.stringify(notes));
-            noteInput.value = '';
-
-            displayNotes();
-        }
-
-        function loadNotes() {
-            const notes = JSON.parse(localStorage.getItem('notes')) || [];
-            savedNotesContainerDiv.innerHTML = '';
-
-            notes.forEach((note, index) => {
-                const noteDiv = document.createElement('div');
-                noteDiv.className = 'note';
-                noteDiv.textContent = note;
-
-                const editButton = document.createElement('button');
-                editButton.textContent = 'Edit';
-                editButton.onclick = () => editNote(index);
-
-                const deleteButton = document.createElement('button');
-                deleteButton.textContent = 'Delete';
-                deleteButton.onclick = () => deleteNote(index);
-
-                noteDiv.appendChild(editButton);
-                noteDiv.appendChild(deleteButton);
-                savedNotesContainerDiv.appendChild(noteDiv);
-            });
-        }
-
-        function editNote(index) {
-            const notes = JSON.parse(localStorage.getItem('notes')) || [];
-            noteInput.value = notes[index];
-            editingIndex = index;
-        }
-
-        function deleteNote(index) {
-            const notes = JSON.parse(localStorage.getItem('notes')) || [];
-            notes.splice(index, 1);
-            localStorage.setItem('notes', JSON.stringify(notes));
-            displayNotes();
-        }
-
-        function displayNotes() {
-            loadNotes();
-        }
-        
-        function clearNotes() {
-            localStorage.removeItem('notes');
-            savedNotesContainerDiv.innerHTML = '';
-        }
-
-        saveButton.addEventListener('click', saveNote);
-        clearButton.addEventListener('click', clearNotes);
-    </script>
+    <script src="../../js/services/notes-app/index.js"></script>
+    
 </body>
 </html>
