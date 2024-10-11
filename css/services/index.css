@@ -1,0 +1,30 @@
+#sortButton {
+    margin-bottom: 20px;
+}
+
+span {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.statusDesc {
+    font-size: .7rem;
+    color: rgb(162, 162, 162);
+}
+
+.statusOfService {
+    display: inline-block;
+}
+
+.online {
+    border: 1px solid green;
+    background: green;
+}
+
+.offline {
+    border: 1px solid red;
+    background: red;
+}
