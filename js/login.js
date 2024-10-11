@@ -14,7 +14,7 @@ document.getElementById("loginForm").onsubmit = function(event) {
 
     if (email === allowedCredentials.email && password === allowedCredentials.password) {
         localStorage.setItem("isLoggedIn", "true");
-        window.location.href = "/";
+        window.location.href = "../";
     } else {
         errorMessage.innerText = "Incorrect email or password.";
         errorMessage.style.display = "block";
