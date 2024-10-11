@@ -1,0 +1,26 @@
+a {
+    display: block;
+    margin-bottom: 10px;
+}
+
+button {
+    display: block;
+    margin-top: 10px;
+}
+
+textarea {
+    margin-bottom: 10px;
+}
+
+.note {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #f9f9f9;
+}
+
+.note button {
+    margin-top: 5px;
+    margin-right: 5px;
+    display: inline-block;
+}
