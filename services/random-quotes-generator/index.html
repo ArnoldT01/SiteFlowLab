@@ -4,38 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Quotes Generator</title>
-    <script>
-        if (!localStorage.getItem("isLoggedIn")) {
-            window.location.href = "../../login.html";
-        }
-    </script>
 </head>
 <body>
+
     <a href="../">Back</a>
     <p class="generatedQuote">Failed to generate quote</p>
     <button onclick="getRandomQuote()">Generate</button>
 
-    <script>
-        const apiUrl = './quotes.txt';
+    <script src="../../js/services/random-quotes-generator/index.js"></script>
 
-        async function getRandomQuote() {
-            try {
-                const response = await fetch(apiUrl);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
-                const quotes = data.quotes;
-                const randomIndex = Math.floor(Math.random() * quotes.length);
-                const randomQuote = quotes[randomIndex];
-                document.querySelector('.generatedQuote').textContent = `${randomQuote.quote} - ${randomQuote.author}`;
-            } catch (error) {
-                console.error('There was a problem with the fetch operation:', error);
-                document.querySelector('.generatedQuote').textContent = 'Failed to generate quote';
-            }
-        }
-
-        getRandomQuote();
-    </script>
 </body>
 </html>
