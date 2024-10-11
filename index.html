@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script>
+        if (!localStorage.getItem("isLoggedIn")) {
+            window.location.href = "login.html";
+        }
+
+        function logout() {
+            localStorage.removeItem("isLoggedIn");
+            window.location.href = "login.html";
+        }
+    </script>
+
+    <style>
+        #viewAll {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Portal</h1>
+    <h3>Our Services</h3>
+    <a href="services/" id="viewAll">view all</a>
+    <button onclick="logout()">Logout</button>
+    
+</body>
+</html>

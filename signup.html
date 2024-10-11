@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="css/signup.css">
+    <script>
+        if (localStorage.getItem("isLoggedIn")) {
+            window.location.href = "/";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Create an Account</h2>
+        <form id="signupForm">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="signup-button">Sign Up</button>
+        </form>
+        <div class="social-signup">
+            <h3>Or sign up with</h3>
+            <button class="google-button">Signup with Google</button>
+            <button class="facebook-button">Signup with Facebook</button>
+            <button class="github-button">Signup with GitHub</button>
+        </div>
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+</body>
+</html>

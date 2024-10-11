@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <script>
+        if (!localStorage.getItem("isLoggedIn")) {
+            window.location.href = "/login.html";
+        }
+    </script>
+    <style>
+        #sortButton {
+            margin-bottom: 20px;
+        }
+
+        span {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-left: 5px;
+        }
+
+        .statusDesc {
+            font-size: .7rem;
+            color: rgb(162, 162, 162);
+        }
+
+        .statusOfService {
+            display: inline-block;
+        }
+
+        .online {
+            border: 1px solid green;
+            background: green;
+        }
+
+        .offline {
+            border: 1px solid red;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <a href="/">Home</a>
+
+    <h3>All Services</h3>
+
+    <button id="sortButton" onclick="sortServices()">Sort (A-Z)</button>
+
+    <div id="services">
+
+        <div><a href="calculator/">Calculator</a><span class="statusOfService offline"></span><span class="statusDesc">Offline</span></div>
+        <div><a href="notes-app/">Notes App</a><span class="statusOfService online"></span><span class="statusDesc">Online</span></div>
+        <div><a href="random-quotes-generator/">Random Quote Generator</a><span class="statusOfService online"></span><span class="statusDesc">Online</span></div>
+        <div><a href="weather-app/">Weather App</a><span class="statusOfService online"></span><span class="statusDesc">Online</span></div>
+        <div><a href="todo-app/">Todo App</a><span class="statusOfService offline"></span><span class="statusDesc">Offline</span></div>
+    
+    </div>
+
+    <script>
+        let isAscending = true;
+
+        function sortServices() {
+            const servicesContainer = document.getElementById('services');
+            const services = Array.from(servicesContainer.children);
+
+            services.sort((a, b) => {
+                const nameA = a.querySelector('a').textContent.toLowerCase();
+                const nameB = b.querySelector('a').textContent.toLowerCase();
+                return isAscending ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
+            });
+
+            servicesContainer.innerHTML = '';
+            services.forEach(service => servicesContainer.appendChild(service));
+
+            isAscending = !isAscending;
+            document.getElementById('sortButton').textContent = isAscending ? 'Sort (A-Z)' : 'Sort (Z-A)';
+        }
+    </script>
+</body>
+</html>
