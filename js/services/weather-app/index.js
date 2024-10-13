@@ -1,5 +1,5 @@
 if (!localStorage.getItem("isLoggedIn")) {
-    window.location.href = "../../login.html";
+    window.location.href = "../../en-za/";
 }
 
 const weatherForm = document.getElementById('weatherForm');

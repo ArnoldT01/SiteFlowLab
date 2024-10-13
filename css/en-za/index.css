@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body,
+html {
+    min-height: 100vh;
+    width: 100vw;
+}
+
+.imageContainer {
+    background-image: url(../../images/3436600.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 40vh;
+}
+
+main {
+    background: #020a18;
+    color: #ffffff;
+    height: 100%;
+}
+
+.contentContainer {
+    padding: 20px;
+}
+
+.contentContainer h1 {
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.contentContainer p {
+    font-size: 1.1rem;
+}
+
+.getStarted,
+.explore {
+    text-align: center;
+    border: 1px solid #0098c8;
+    padding: 15px 0;
+    border-radius: 8px;
+}
+
+.getStarted {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    background: #0098c8;
+}
+
+.getStarted a {
+    display: block;
+    text-decoration: none;
+    color: #020a18;
+}
+
+.getStarted:hover {
+    background: #00b3ea;
+}
+
+.explore {
+    margin-bottom: 10vh;
+    background: transparent;
+}
+
+.callsToAction p {
+    font-size: .9rem;
+}
+
+@media screen and (min-width: 535px) {
+    .getStarted{
+        width: 180px;
+    }
+
+    .explore {
+        width: 125px;
+    }
+
+    .callsToAction {
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: baseline;
+    }
+
+    .getStarted {
+        margin-right: 2vw;
+    }
+}
+
+@media screen and (min-width: 540px) {
+    .contentContainer {
+        margin: 0 8vh;
+    }    
+}
+
+@media screen and (min-width: 860px) {
+    body {
+        background-image: url(../../images/3436600.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .imageContainer {
+        display: none;
+    }
+
+    main {
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .contentContainer {
+        max-width: 42vw;
+    }
+}
