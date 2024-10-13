@@ -5,11 +5,42 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body,
-html {
+html,
+body {
     min-height: 100vh;
     width: 100vw;
+    overflow-x: hidden;
 }
+
+/*  */
+
+header {
+    overflow: hidden;
+    position: relative;
+    background: #020a18;
+    display: flex;
+    justify-content: space-between;
+}
+
+.textLogo {
+    font-size: 1.5rem;
+}
+
+header nav {
+    display: none;
+}
+
+header a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: .9rem;
+    display: block;
+}
+
+
+
+/*  */
 
 .imageContainer {
     background-image: url(../../images/3436600.jpg);
