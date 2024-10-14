@@ -2,7 +2,7 @@ if (localStorage.getItem("isLoggedIn")) {
     window.location.href = "./";
 }
 
-document.getElementById("loginForm").onsubmit = function(event) {
+document.querySelector(".signInBtnLink").onclick = function(event) {
     event.preventDefault();
 
     const allowedCredentials = {
