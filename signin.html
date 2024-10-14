@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/signin.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="backBtnContainer">
+            <a href=""><i class="fa fa-angle-left"></i></a>
+        </div>
+        <div class="signInUpTextContainer">
+            <h1>SIGN</h1>
+            <h1><a href="" class="signUp"><span class="inactive">UP</span></a><span>IN</span></h1>
+        </div>
+
+        <div id="error-message" class="error-message"></div>
+        <form id="signinForm">
+            <div class="input-group">
+                <input type="email" id="email" name="email" placeholder="EMAIL" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" name="password" placeholder="PASSWORD" required>
+            </div>
+            <a href="" class="forgotPassword">Forgot password?</a>
+        </form>
+        
+
+        <p class="or">OR</p>
+
+        <div class="socialSignin">
+            <a href=""><i class="fa fa-brands fa-google"></i></a>
+            <a href=""><i class="fa fa-brands fa-github"></i></a>
+            <a href=""><i class="fa fa-brands fa-instagram"></i></a>
+            <a href=""><i class="fa fa-brands fa-facebook-f"></i></a>
+        </div>
+
+        <div class="signInBtn">
+            <a href="" class="signInBtnLink"><i class="fa fa-angle-right"></i></a>
+        </div>
+
+        <p class="termsAndPrivacyPolicy">TERMS OF <a href="">SERVICES</a> AND <a href="">PRIVACY POLICY</a></p>
+
+    </div>
+
+    <script src="/js/signin.js"></script>
+</body>
+</html>
