@@ -9,16 +9,12 @@ html,
 body {
     min-height: 100vh;
     width: 100vw;
-    /* overflow-x: hidden; */
 }
 
-body {
-    background: #020a18;
-}
+body { background: #020a18; }
 
 header {
     overflow: hidden;
-    /* position: relative; */
     display: flex;
     justify-content: space-between;
 }
@@ -27,13 +23,6 @@ header {
     font-size: 1.5rem;
     font-weight: 500;
 }
-
-/* header nav {
-    display: none;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-} */
 
 header nav {
     display: none;
@@ -65,18 +54,14 @@ main {
     height: 100%;
 }
 
-.contentContainer {
-    padding: 20px;
-}
+.contentContainer { padding: 20px; }
 
 .contentContainer h1 {
     margin-bottom: 20px;
     font-weight: 600;
 }
 
-.contentContainer p {
-    font-size: 1.1rem;
-}
+.contentContainer p { font-size: 1.1rem; }
 
 .getStarted,
 .explore {
@@ -98,27 +83,19 @@ main {
     color: #020a18;
 }
 
-.getStarted:hover {
-    background: #00b3ea;
-}
+.getStarted:hover { background: #00b3ea; }
 
 .explore {
     margin-bottom: 10vh;
     background: transparent;
 }
 
-.callsToAction p {
-    font-size: .9rem;
-}
+.callsToAction p { font-size: .9rem; }
 
 @media screen and (min-width: 535px) {
-    .getStarted{
-        width: 180px;
-    }
+    .getStarted{ width: 180px; }
 
-    .explore {
-        width: 125px;
-    }
+    .explore { width: 125px; }
 
     .callsToAction {
         display: flex;
@@ -127,16 +104,12 @@ main {
         align-items: baseline;
     }
 
-    .getStarted {
-        margin-right: 2vw;
-    }
+    .getStarted { margin-right: 2vw; }
 }
 
 @media screen and (min-width: 540px) {
     header,
-    .contentContainer {
-        margin: 0 8vh;
-    }    
+    .contentContainer { margin: 0 8vh; }
 }
 
 @media screen and (min-width: 860px) {
@@ -175,17 +148,11 @@ main {
         margin-right: 1vw;
     }
 
-    #navSignup {
-        border: 1px solid white;
-    }
+    #navSignup { border: 1px solid white; }
 
-    .icon {
-        display: none;
-    }
+    .icon { display: none; }
 
-    .imageContainer {
-        display: none;
-    }
+    .imageContainer { display: none; }
 
     main {
         background: transparent;
@@ -195,7 +162,5 @@ main {
         min-height: 90vh;
     }
 
-    .contentContainer {
-        max-width: 42vw;
-    }
+    .contentContainer { max-width: 42vw; }
 }
