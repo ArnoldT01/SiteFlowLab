@@ -30,6 +30,11 @@ body {
     font-weight: bold;
 }
 
+.backBtnContainer a {
+    text-decoration: none;
+    color: #616161;
+}
+
 .signInUpTextContainer {
     font-family: blairItc, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 2rem;
