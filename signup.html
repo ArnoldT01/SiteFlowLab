@@ -3,31 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup Page</title>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/signinup-global.css">
     <link rel="stylesheet" href="css/signup.css">
-    <script src="js/signup.js"></script>
 </head>
 <body>
+    
     <div class="container">
-        <h2>Create an Account</h2>
+        <div class="backBtnContainer">
+            <a href="en-za/"><i class="fa fa-angle-left"></i></a>
+        </div>
+        <div class="signInUpTextContainer">
+            <h1>SIGN</h1>
+            <h1><span>UP</span><a href="signin.html" class="signIn"><span class="inactive">IN</span></a></h1>
+        </div>
+
+        <div id="error-message" class="error-message"></div>
         <form id="signupForm">
             <div class="input-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+                <input type="text" id="fullName" name="fullName" placeholder="FULL NAME" required>
             </div>
             <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
+                <input type="email" id="email" name="email" placeholder="EMAIL" required>
             </div>
-            <button type="submit" class="signup-button">Sign Up</button>
+            <div class="input-group">
+                <input type="password" id="password" name="password" placeholder="PASSWORD" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="retype-password" name="retype-password" placeholder="RE-TYPE PASSWORD" required>
+            </div>
         </form>
-        <div class="social-signup">
-            <h3>Or sign up with</h3>
-            <button class="google-button">Signup with Google</button>
-            <button class="facebook-button">Signup with Facebook</button>
-            <button class="github-button">Signup with GitHub</button>
+        
+
+        <p class="or">OR</p>
+
+        <div class="socialSignup">
+            <a href=""><i class="fa fa-brands fa-google"></i></a>
+            <a href=""><i class="fa fa-brands fa-github"></i></a>
+            <a href=""><i class="fa fa-brands fa-instagram"></i></a>
+            <a href=""><i class="fa fa-brands fa-facebook-f"></i></a>
         </div>
-        <p>Already have an account? <a href="signin.html">Login here</a></p>
+
+        <div class="signUpBtn">
+            <a href="" class="signUpBtnLink"><i class="fa fa-angle-right"></i></a>
+        </div>
+
+        <p class="termsAndPrivacyPolicy">TERMS OF <a href="">SERVICES</a> AND <a href="">PRIVACY POLICY</a></p>
+
     </div>
+
+    <script src="js/signup.js"></script>
 </body>
 </html>
