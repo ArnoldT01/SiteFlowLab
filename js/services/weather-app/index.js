@@ -60,7 +60,7 @@ cityInput.addEventListener('input', async () => {
         cities.forEach(city => {
             const suggestionDiv = document.createElement('div');
             suggestionDiv.className = 'suggestion';
-            suggestionDiv.textContent = `${city.name}, ${city.state || ''}, ${countryNames[city.sys.country] || city.sys.country}`.trim(); // Include state if available
+            suggestionDiv.textContent = `${city.name}, ${city.state || ''}, ${countryNames[city.sys.country] || city.sys.country}`.trim();
             suggestionDiv.onclick = () => selectCity(city.name);
             suggestionsDiv.appendChild(suggestionDiv);
         });
@@ -90,9 +90,11 @@ async function getWeather(city) {
 }
 
 function displayWeather(data) {
-    const { main, weather, name } = data;
+    const { main, weather, name, sys } = data;
+    const countryName = countryNames[sys.country] || sys.country;
+
     weatherInfoDiv.innerHTML = `
-        <h2>Weather in ${name}</h2>
+        <h2>Weather in ${name}, ${countryName}</h2>
         <p>Temperature: ${main.temp}°C</p>
         <p>Condition: ${weather[0].description}</p>
     `;
