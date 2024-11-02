@@ -1,0 +1,10 @@
+textarea,
+button,
+#passwordLength {
+    display: block;
+    margin-bottom: 2vh;
+}
+
+button {
+    padding: .4rem .8rem;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free online password generator</title>
+    <link rel="stylesheet" href="../../css/services/pass-gen/index.css">
+</head>
+<body>
+    <a href="../">Back</a>
+
+    <h1>Password Generator</h1>
+    <h4>Free | Easy | Safe</h4>
+
+    <textarea id="generatedPassword" cols="30" rows="3" disabled></textarea>
+    <button id="generate">Generate</button>
+    <button>Copy password</button>
+    <input type="range" id="passwordLength" value="10" max="100">
+    
+    <div class="parametersContainer">
+        <div class="upperCaseContainer">
+            <input type="checkbox" id="upperCase" checked>
+            <label for="upperCase">Uppercase letters</label>
+        </div>
+        <div class="lowerCaseContainer">
+            <input type="checkbox" id="lowerCase">
+            <label for="lowerCase">Lowercase letters</label>
+        </div>
+        <div class="numbersContainer">
+            <input type="checkbox" id="numbers">
+            <label for="numbers">Numbers</label>
+        </div>
+        <div class="symbolsContainer">
+            <input type="checkbox" id="symbols">
+            <label for="symbols">Symbols</label>
+        </div>
+    </div>
+
+    <div class="previousPasswords"></div>
+
+    <script src="../../js/services/pass-gen/app.js"></script>
+</body>
+</html>
+
+<!-- 
+todo
+
+show current passlength on the input:range ( after it )
+show last 10 generated passwords which you can copy to clipboard
+-->
