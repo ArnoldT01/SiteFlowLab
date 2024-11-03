@@ -10,39 +10,18 @@ const suggestionsDiv = document.getElementById('suggestions');
 const apiKey = 'f433176e69b07331a03003cb58e74213';
 const weatherUrl = 'https://api.openweathermap.org/data/2.5/weather';
 const cityUrl = 'https://api.openweathermap.org/data/2.5/find';
+const airPollutionUrl = 'https://api.openweathermap.org/data/2.5/air_pollution';
 
 const countryNames = {
-    "US": "United States",
-    "GB": "United Kingdom",
-    "CA": "Canada",
-    "DE": "Germany",
-    "FR": "France",
-    "IN": "India",
-    "AU": "Australia",
-    "ZA": "South Africa",
-    "JP": "Japan",
-    "BR": "Brazil",
-    "CN": "China",
-    "MX": "Mexico",
-    "RU": "Russia",
-    "IT": "Italy",
-    "ES": "Spain",
-    "NL": "Netherlands",
-    "SE": "Sweden",
-    "NO": "Norway",
-    "FI": "Finland",
-    "DK": "Denmark",
-    "KR": "South Korea",
-    "SG": "Singapore",
-    "TR": "Turkey",
-    "AR": "Argentina",
-    "PL": "Poland",
-    "AE": "United Arab Emirates",
-    "CH": "Switzerland",
-    "IE": "Ireland",
-    "TH": "Thailand",
-    "PH": "Philippines",
-    "ID": "Indonesia",
+    "US": "United States", "GB": "United Kingdom", "CA": "Canada",
+    "DE": "Germany", "FR": "France", "IN": "India", "AU": "Australia",
+    "ZA": "South Africa", "JP": "Japan", "BR": "Brazil", "CN": "China",
+    "MX": "Mexico", "RU": "Russia", "IT": "Italy", "ES": "Spain",
+    "NL": "Netherlands", "SE": "Sweden", "NO": "Norway", "FI": "Finland",
+    "DK": "Denmark", "KR": "South Korea", "SG": "Singapore", "TR": "Turkey",
+    "AR": "Argentina", "PL": "Poland", "AE": "United Arab Emirates",
+    "CH": "Switzerland", "IE": "Ireland", "TH": "Thailand", "PH": "Philippines",
+    "ID": "Indonesia"
 };
 
 weatherForm.addEventListener('submit', async (event) => {
@@ -80,13 +59,23 @@ function selectCity(city) {
 }
 
 async function getWeather(city) {
-    const response = await fetch(`${weatherUrl}?q=${city}&appid=${apiKey}&units=metric`);
-    if (!response.ok) {
+    const weatherResponse = await fetch(`${weatherUrl}?q=${city}&appid=${apiKey}&units=metric`);
+    if (!weatherResponse.ok) {
         weatherInfoDiv.innerHTML = '<p>Error: Unable to fetch weather data.</p>';
         return;
     }
-    const weatherData = await response.json();
+    const weatherData = await weatherResponse.json();
+    
+    const { coord } = weatherData;
+    const pollutionResponse = await fetch(`${airPollutionUrl}?lat=${coord.lat}&lon=${coord.lon}&appid=${apiKey}`);
+    if (!pollutionResponse.ok) {
+        weatherInfoDiv.innerHTML = '<p>Error: Unable to fetch air pollution data.</p>';
+        return;
+    }
+    const pollutionData = await pollutionResponse.json();
+
     displayWeather(weatherData);
+    displayAirPollution(pollutionData);
 }
 
 function displayWeather(data) {
@@ -98,4 +87,15 @@ function displayWeather(data) {
         <p>Temperature: ${main.temp}°C</p>
         <p>Condition: ${weather[0].description}</p>
     `;
+}
+
+function displayAirPollution(data) {
+    const airQuality = data.list[0].main.aqi;
+    const airQualityText = ["Good", "Fair", "Moderate", "Poor", "Very Poor"];
+
+    const airPollutionDiv = document.createElement('div');
+    airPollutionDiv.innerHTML = `
+        <p>Air Quality Index (AQI): ${airQuality} - ${airQualityText[airQuality - 1]}</p>
+    `;
+    weatherInfoDiv.appendChild(airPollutionDiv);
 }
